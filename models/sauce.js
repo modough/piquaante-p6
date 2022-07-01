@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongooseErrorHandler = require('mongoose-validation-error-message-handler');
+
 
 
 //----------------------
@@ -18,13 +18,4 @@ const sauceSchema = mongoose.Schema({
     usersDisliked: { type: [String]},
 });
 
-const model = mongoose.model('Sauce', sauceSchema);
-
-const object = new model({});
-object.save(function (err, doc) {
-  if (err) {
-    const error = mongooseErrorHandler(err);
-}
-});
-
-module.exports = model;
+module.exports = mongoose.model('Sauce', sauceSchema);
